@@ -1,0 +1,42 @@
+<p id="notice"><%= notice %></p>  
+
+<div class = "container-fluid">
+  <div class="row">
+    <div class='col-3'>
+      <div class="card">
+        <div class="card-body">
+          <%= render 'form', room: Room.new %>
+          </div>
+        </div>
+      <div class="card">
+        <div class="card-body">
+          <% @rooms.each do |room|%>
+            
+            <%= link_to room do%>
+                <div class="card mb-2">
+                  <div class="card-body">
+                  <%= room.name %>
+                  </div>
+                </div>
+            <% end%>
+          <%end%>
+          </div>
+        </div>
+
+
+
+
+    </div>
+    <div class='col-9'>
+      <%if @room.present?%>
+        <div class="chat-room">
+              <p> <%= @room.name%></p>
+              <div class="chat-box">
+                <%= render 'messages/form' , message: Message.new%>
+          </div>
+        <div>
+      <%end%>
+    </div>
+  <div>
+</div>
+
